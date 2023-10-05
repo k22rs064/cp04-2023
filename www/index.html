@@ -181,7 +181,7 @@
     
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
-        acutive = true;
+        active = true;
         startTime = new Date();
         
         
@@ -189,7 +189,7 @@
 
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
-        actuive = false;
+        active = false;
         
         
     }
@@ -197,7 +197,6 @@
     // ButtonCがクリックされた時の処理
     function btnCClick(e){
         alarm();
-
         active = false;
         period = 60*parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間: 0");
@@ -208,8 +207,17 @@
  
     // 繰り返し実行する処理
     function timer(){  
-        
-        
+        if (active){
+            var time = parseInt((new Date() - startTime)/1000 );
+            var rest = period - time;
+            $("#time").html("経過時間: " + time);
+            $("#remain").html("残り時間: " + rest);
+            analog(rest);
+            if(rest <= 0){
+            active = false;
+            alarm();
+            }
+        }
     } 
 
   </script>

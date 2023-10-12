@@ -7,12 +7,9 @@
     button {
         color: blue;
         font-family: Times;
+        border-radius: 20px;
     }
-
-    button {
-        border-radius: 20;
-    }
-
+    
     #minuteStr {
         color: #ff0000;
         font-size: 20px;
